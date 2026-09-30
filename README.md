@@ -58,6 +58,16 @@ Instead of messing with system-wide accessibility settings (which ruins your mus
 | **Apple Safari** | ✅ 100% | WebKit | Userscript [`safari/`](safari/) or Xcode converter |
 | **Kiwi Browser (Android)** | ✅ 100% | Chromium Mobile | Load Unpacked from root |
 
+## 📦 Downloads (v1.0.0 Releases)
+
+Download the pre-packaged zip for your specific browser:
+
+| Browser | Package File | Direct Download |
+| :--- | :--- | :--- |
+| **Chrome / Edge / Opera / Brave** | `mono-audio-fixer-v1.0.0-chrome-edge-opera-brave.zip` | [📥 Download ZIP](releases/v1.0.0/mono-audio-fixer-v1.0.0-chrome-edge-opera-brave.zip) |
+| **Mozilla Firefox** | `mono-audio-fixer-v1.0.0-firefox.zip` | [📥 Download ZIP](releases/v1.0.0/mono-audio-fixer-v1.0.0-firefox.zip) |
+| **Apple Safari (macOS & iOS)** | `mono-audio-fixer-v1.0.0-safari.zip` | [📥 Download ZIP](releases/v1.0.0/mono-audio-fixer-v1.0.0-safari.zip) |
+
 ---
 
 ## 🚀 Quick Install Guide
