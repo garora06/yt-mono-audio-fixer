@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mono Audio Fixer — Fix Single-Ear YouTube Audio Instantly</title>
+  <meta name="description" content="Free open-source Chrome extension to fix YouTube & browser videos where audio only plays in one ear. Downmix stereo to mono, copy left/right channels, and boost volume.">
+  <link rel="icon" type="image/png" href="icons/icon32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background Ambient Glow -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-brand">
+        <img src="icons/icon48.png" alt="Mono Audio Fixer" class="nav-logo">
+        <span class="brand-text">Mono Audio Fixer</span>
+      </a>
+      <div class="nav-links">
+        <a href="#demo" class="nav-link">Live Demo</a>
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#install" class="nav-link">Install Guide</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm github-btn">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero-section">
+    <div class="hero-container">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span>100% Free & Open Source • Manifest V3</span>
+      </div>
+      
+      <h1 class="hero-title">
+        Fix Single-Ear YouTube Audio <br>
+        <span class="gradient-text">With Just One Click</span>
+      </h1>
+      
+      <p class="hero-subtitle">
+        Tired of videos that only play in your left or right ear? Downmix stereo to mono, duplicate single channels, balance audio, and boost volume for individual browser tabs.
+      </p>
+
+      <div class="hero-cta-group">
+        <a href="#install" class="btn btn-primary btn-lg">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/>
+          </svg>
+          <span>Install Extension</span>
+        </a>
+        <a href="#demo" class="btn btn-outline btn-lg">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+          </svg>
+          <span>Try Interactive Demo</span>
+        </a>
+      </div>
+
+      <!-- Quick Highlights -->
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-value">5</span>
+          <span class="stat-label">Audio Modes</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-value">300%</span>
+          <span class="stat-label">Volume Boost</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-value">0ms</span>
+          <span class="stat-label">Audio Latency</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-value">0 KB</span>
+          <span class="stat-label">Tracking / Ads</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Interactive Live Demo Section -->
+  <section id="demo" class="demo-section">
+    <div class="section-container">
+      <div class="section-header">
+        <h2 class="section-title">Experience the Fix Live</h2>
+        <p class="section-subtitle">Put on your headphones and click the test buttons below to hear the problem and fix it in real-time!</p>
+      </div>
+
+      <div class="demo-card">
+        <!-- Visualizer Area -->
+        <div class="visualizer-container">
+          <div class="channel-indicator left-indicator">
+            <span class="channel-badge">LEFT EAR</span>
+            <div class="meter-bar"><div class="meter-fill" id="meterL"></div></div>
+          </div>
+
+          <canvas id="audioVisualizer" width="500" height="120"></canvas>
+
+          <div class="channel-indicator right-indicator">
+            <span class="channel-badge">RIGHT EAR</span>
+            <div class="meter-bar"><div class="meter-fill" id="meterR"></div></div>
+          </div>
+        </div>
+
+        <!-- Demo Control Panel -->
+        <div class="demo-controls">
+          <div class="demo-step">
+            <span class="step-num">Step 1</span>
+            <span class="step-title">Play a test sound:</span>
+            <div class="button-group">
+              <button class="btn btn-warning btn-sm" id="btnBrokenLeft">
+                🔈 Broken (Left Ear Only)
+              </button>
+              <button class="btn btn-warning btn-sm" id="btnBrokenRight">
+                🔈 Broken (Right Ear Only)
+              </button>
+              <button class="btn btn-secondary btn-sm" id="btnNormalStereo">
+                🎵 Normal Stereo
+              </button>
+              <button class="btn btn-danger btn-sm" id="btnStopAudio">
+                ⏹️ Stop
+              </button>
+            </div>
+          </div>
+
+          <div class="demo-step">
+            <span class="step-num">Step 2</span>
+            <span class="step-title">Apply Extension Fix:</span>
+            <div class="button-group" id="demoPresets">
+              <button class="preset-pill active" data-mode="mono">
+                🎧 Mono Mix (L+R)
+              </button>
+              <button class="preset-pill" data-mode="left-only">
+                👈 Left to Both
+              </button>
+              <button class="preset-pill" data-mode="right-only">
+                👉 Right to Both
+              </button>
+              <button class="preset-pill" data-mode="swap">
+                🔀 Swap L/R
+              </button>
+              <button class="preset-pill" data-mode="stereo">
+                🔄 Bypass
+              </button>
+            </div>
+          </div>
+
+          <!-- Fine Tuning Controls -->
+          <div class="demo-sliders">
+            <div class="slider-field">
+              <div class="slider-info">
+                <span>Balance:</span>
+                <span class="badge" id="demoBalanceVal">Center</span>
+              </div>
+              <input type="range" id="demoBalance" min="-1" max="1" step="0.05" value="0">
+            </div>
+
+            <div class="slider-field">
+              <div class="slider-info">
+                <span>Volume:</span>
+                <span class="badge" id="demoVolumeVal">100%</span>
+              </div>
+              <input type="range" id="demoVolume" min="0" max="3" step="0.05" value="1">
+            </div>
+          </div>
+
+          <div class="demo-status" id="demoStatus">
+            🎧 Wear headphones for the best experience. Click a test sound to begin!
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="features-section">
+    <div class="section-container">
+      <div class="section-header">
+        <h2 class="section-title">Engineered for Flawless Audio</h2>
+        <p class="section-subtitle">Everything you need to fix corrupted audio, quiet tracks, or uneven panning.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon icon-indigo">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/><circle cx="12" cy="12" r="5"/>
+            </svg>
+          </div>
+          <h3 class="feature-title">True Mono Downmix</h3>
+          <p class="feature-desc">Accurately computes equal 50/50 blend of Left and Right audio signals, sending identical sound to both headphone drivers.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon icon-pink">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/><path d="M12 4v16c-4.41 0-8-3.59-8-8s3.59-8 8-8z"/>
+            </svg>
+          </div>
+          <h3 class="feature-title">Left / Right Channel Cloner</h3>
+          <p class="feature-desc">When one channel is filled with static or completely silent, copy the good channel to both ears and mute the broken one entirely.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon icon-cyan">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+              <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+            </svg>
+          </div>
+          <h3 class="feature-title">300% Volume Booster</h3>
+          <p class="feature-desc">Can't hear a soft-spoken teacher or quiet YouTube interview? Boost gain up to 3x without breaking tab audio fidelity.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon icon-amber">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+              <path d="M6.99 11L3 15l3.99 4v-3H14v-2H6.99v-3zM21 9l-3.99-4v3H10v2h7.01v3L21 9z"/>
+            </svg>
+          </div>
+          <h3 class="feature-title">Stereo Channel Swap</h3>
+          <p class="feature-desc">Invert left and right output channels instantly. Perfect if headphones are reversed or video audio was rendered inverted.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon icon-emerald">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2v-2zm0-10h2v8h-2V6z"/>
+            </svg>
+          </div>
+          <h3 class="feature-title">YouTube SPA Compatible</h3>
+          <p class="feature-desc">Detects YouTube dynamic page navigation (`yt-navigate-finish`) so your settings stay active across playlist videos and recommendations.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon icon-purple">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+              <path d="M20 5H4c-1.1 0-1.99.9-1.99 2L2 17c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm-9 3h2v2h-2V8zm0 3h2v2h-2v-2zM8 8h2v2H8V8zm0 3h2v2H8v-2zm-1 2H5v-2h2v2zm0-3H5V8h2v2zm9 7H8v-2h8v2zm0-4h-2v-2h2v2zm0-3h-2V8h2v2zm3 3h-2v-2h2v2zm0-3h-2V8h2v2z"/>
+            </svg>
+          </div>
+          <h3 class="feature-title">Instant Keyboard Hotkey</h3>
+          <p class="feature-desc">Press <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> anytime to toggle mono mode on or off without reaching for your mouse.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Installation Walkthrough Section -->
+  <section id="install" class="install-section">
+    <div class="section-container">
+      <div class="section-header">
+        <h2 class="section-title">Install in 30 Seconds</h2>
+        <p class="section-subtitle">No Chrome Web Store account needed. Load the source code directly into your browser!</p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-badge">1</div>
+          <h3 class="step-heading">Download Repository</h3>
+          <p class="step-text">Download the ZIP or clone the repository to your computer:</p>
+          <div class="code-box">
+            <code>git clone https://github.com/YOUR_USERNAME/mono-audio-fixer.git</code>
+            <button class="copy-btn" id="copyBtn">Copy</button>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-badge">2</div>
+          <h3 class="step-heading">Open Extensions Page</h3>
+          <p class="step-text">Navigate to your browser's extension management page:</p>
+          <ul class="browser-links">
+            <li><strong>Chrome & Brave:</strong> <code>chrome://extensions</code></li>
+            <li><strong>Edge:</strong> <code>edge://extensions</code></li>
+            <li><strong>Opera:</strong> <code>opera://extensions</code></li>
+          </ul>
+        </div>
+
+        <div class="step-card">
+          <div class="step-badge">3</div>
+          <h3 class="step-heading">Load Unpacked</h3>
+          <p class="step-text">Enable <strong>Developer mode</strong> (top-right toggle), click <strong>Load unpacked</strong> (top-left), and choose the extension folder. You're ready to go!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="faq-section">
+    <div class="section-container">
+      <div class="section-header">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Does this extension collect any data or track my browsing?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p><strong>Absolutely not.</strong> Mono Audio Fixer is 100% open-source and local. It operates solely through the browser's native Web Audio API and contains zero telemetry, analytics, or external network requests.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Does it affect audio in other browser tabs or other apps?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p><strong>No.</strong> Unlike system-wide OS accessibility toggles, this extension only modifies the audio of the specific tab you have open. Your Spotify, games, or other tabs remain in rich full stereo.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Can I use this on Android or mobile?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes! On Android, you can install browsers that support desktop extensions such as <strong>Kiwi Browser</strong> or <strong>Firefox for Android</strong> and load this extension directly for mobile YouTube.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Why not just turn on Mono Audio in Windows or macOS settings?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>System settings turn <em>everything</em> on your computer into mono—including Discord calls, games, and music. Mono Audio Fixer lets you fix individual broken videos without compromising the rest of your audio setup.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <img src="icons/icon32.png" alt="Logo" width="24" height="24">
+        <span>Mono Audio Fixer — Released under the MIT License</span>
+      </div>
+      <div class="footer-right">
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+        <span>•</span>
+        <a href="#install">Install Extension</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
