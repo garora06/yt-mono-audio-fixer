@@ -46,27 +46,52 @@ Instead of messing with system-wide accessibility settings (which ruins your mus
 
 ---
 
-## 🚀 Quick Install Guide (Takes 30 Seconds)
+## 🌐 Browser Compatibility
 
-Since this extension is open-source, you can install it directly in **Google Chrome**, **Brave**, **Microsoft Edge**, **Opera**, or **Kiwi Browser (Android)** in seconds:
+| Browser | Support Level | Engine | Setup Method |
+| :--- | :---: | :---: | :--- |
+| **Google Chrome** | ✅ 100% | Chromium | Load Unpacked from root |
+| **Microsoft Edge** | ✅ 100% | Chromium | Load Unpacked from root |
+| **Brave Browser** | ✅ 100% | Chromium | Load Unpacked from root |
+| **Opera / Opera GX** | ✅ 100% | Chromium | Load Unpacked from root |
+| **Mozilla Firefox** | ✅ 100% | Gecko | Load from [`firefox/`](firefox/) or `about:debugging` |
+| **Apple Safari** | ✅ 100% | WebKit | Userscript [`safari/`](safari/) or Xcode converter |
+| **Kiwi Browser (Android)** | ✅ 100% | Chromium Mobile | Load Unpacked from root |
 
-### Step 1: Download or Clone this Repository
-Clone with Git:
-```bash
-git clone https://github.com/YOUR_USERNAME/mono-audio-fixer.git
-```
-*Or click the green **Code** button at the top of this GitHub page and select **Download ZIP**, then unzip it to your computer.*
+---
 
-### Step 2: Open Extensions in Your Browser
-- In **Chrome / Brave**: Go to `chrome://extensions/`
-- In **Edge**: Go to `edge://extensions/`
-- In **Opera**: Go to `opera://extensions/`
+## 🚀 Quick Install Guide
 
-### Step 3: Enable Developer Mode & Load
-1. Turn on the **Developer mode** toggle in the top-right corner.
-2. Click the **Load unpacked** button in the top-left corner.
-3. Select the folder containing `manifest.json`.
-4. 🎉 **Done!** Pin the extension to your toolbar and click it on any video!
+### 🟢 Chrome, Edge, Brave, Opera & Kiwi Browser (Android)
+*Edge and Opera run on the Chromium engine and work 100% out of the box with the standard extension files!*
+
+1. **Download/Clone**: Download this repo as a ZIP and extract it (or `git clone https://github.com/garora06/mono-audio-fixer.git`).
+2. **Open Extensions**:
+   - In **Chrome / Brave**: Navigate to `chrome://extensions`
+   - In **Microsoft Edge**: Navigate to `edge://extensions`
+   - In **Opera / Opera GX**: Navigate to `opera://extensions`
+3. **Enable Developer Mode**: Turn on the **Developer mode** toggle switch in the extensions tab.
+4. **Load**: Click **Load unpacked** (top-left) and select the main project folder.
+5. 🎉 **Done!** Pin the extension to your toolbar.
+
+---
+
+### 🦊 Mozilla Firefox (Desktop & Android)
+1. In Firefox, navigate to `about:debugging#/runtime/this-firefox` in the address bar.
+2. Click **Load Temporary Add-on...**.
+3. Select `firefox/manifest.json` (or `mono-audio-fixer-firefox.zip`).
+4. 🎉 **Done!** The extension icon will appear in your Firefox toolbar.
+
+---
+
+### 🍏 Apple Safari (macOS & iOS)
+Apple requires extensions to run either via a userscript runner or an Xcode container.
+
+- **Option A (Instant 1-Click Setup - Recommended)**:
+  1. Install the free **[Userscripts](https://apps.apple.com/app/userscripts/id1463298887)** extension from the Mac/iOS App Store.
+  2. Open [`safari/mono-audio-fixer.user.js`](safari/mono-audio-fixer.user.js) and click **Install**.
+  3. You'll now have a floating 🎧 **Mono Audio** pill right inside Safari on YouTube!
+- **Option B (Xcode App Converter)**: See [`safari/README.md`](safari/README.md) for compiling with `xcrun safari-web-extension-converter`.
 
 ---
 
