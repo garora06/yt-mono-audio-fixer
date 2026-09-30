@@ -1,0 +1,60 @@
+name: Create GitHub Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Package Extension Archives
+        run: |
+          mkdir -p releases/v1.0.0
+          # 1. Chromium bundle (Chrome, Edge, Opera, Brave, Kiwi)
+          zip -j releases/v1.0.0/mono-audio-fixer-v1.0.0-chrome-edge-opera-brave.zip manifest.json background.js content.js popup.html popup.js LICENSE README.md
+          cd icons && zip -r ../releases/v1.0.0/mono-audio-fixer-v1.0.0-chrome-edge-opera-brave.zip . && cd ..
+
+          # 2. Firefox bundle
+          cd firefox && zip -j ../releases/v1.0.0/mono-audio-fixer-v1.0.0-firefox.zip manifest.json background.js content.js popup.html popup.js ../LICENSE ../README.md
+          cd icons && zip -r ../../releases/v1.0.0/mono-audio-fixer-v1.0.0-firefox.zip . && cd ../..
+
+          # 3. Safari bundle
+          cd safari && zip -r ../releases/v1.0.0/mono-audio-fixer-v1.0.0-safari.zip mono-audio-fixer.user.js README.md ../LICENSE ../README.md && cd ..
+
+      - name: Publish Official GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: "YouTube & Tab Mono Audio Fixer ${{ github.ref_name || 'v1.0.0' }}"
+          tag_name: ${{ github.ref_name || 'v1.0.0' }}
+          body: |
+            ### 🎧 YouTube & Tab Mono Audio Fixer ${{ github.ref_name || 'v1.0.0' }}
+
+            Fix YouTube & browser videos where audio only plays in one ear!
+
+            #### ✨ Features
+            - 🎧 **Mono Mix** (`50% L + 50% R -> Both Ears`): Blends both channels evenly.
+            - 👈 **Left Only** (`100% L -> Both Ears`): Duplicates left channel when the right channel is dead or noisy.
+            - 👉 **Right Only** (`100% R -> Both Ears`): Duplicates right channel when the left channel is dead or noisy.
+            - 🔀 **Stereo Swap**: Inverts left and right channels.
+            - 🔊 **300% Volume Boost** & Stereo Balance Control.
+            - ⌨️ Shortcut: `Alt + Shift + M`.
+
+            #### 📦 Browser Packages Included Below
+            - **`mono-audio-fixer-*-chrome-edge-opera-brave.zip`**: For Chrome, Microsoft Edge, Opera, and Brave.
+            - **`mono-audio-fixer-*-firefox.zip`**: For Mozilla Firefox (Desktop & Android).
+            - **`mono-audio-fixer-*-safari.zip`**: For Apple Safari (macOS & iOS Userscript).
+          files: |
+            releases/v1.0.0/mono-audio-fixer-v1.0.0-chrome-edge-opera-brave.zip
+            releases/v1.0.0/mono-audio-fixer-v1.0.0-firefox.zip
+            releases/v1.0.0/mono-audio-fixer-v1.0.0-safari.zip
+          draft: false
+          prerelease: false
